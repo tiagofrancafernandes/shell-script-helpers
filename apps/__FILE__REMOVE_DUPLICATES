@@ -1,0 +1,18 @@
+#!/bin/bash
+
+remove_duplicate_lines ()
+{
+	SOURCE=${1:-''}
+
+	if [ "$SOURCE" ]; then
+		if [ -f "$SOURCE" ]; then
+			echo "Reving duplicate values from $SOURCE"
+			TEMP_NAME="/tmp/remove_duplicate_lines_$(date +'%s')"
+			cat $SOURCE|sort -h |uniq > "$TEMP_NAME" && mv "$TEMP_NAME" $SOURCE
+		else
+			echo "File not found ('$SOURCE')";
+		fi
+	fi
+}
+
+remove_duplicate_lines "$@"

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+__SELF__ ()
+{
+	echo $(readlink -f "$0");
+}
+
+__SELF__ "$@"
