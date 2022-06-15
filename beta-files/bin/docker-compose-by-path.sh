@@ -1,0 +1,1 @@
+../docker-compose-by-path.sh
